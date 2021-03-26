@@ -45,7 +45,8 @@ $ads = [
 ];
 
 
-function formatPrice($price) {
+function formatPrice($price)
+{
     $formattedPrice = ceil($price);
     if ($formattedPrice >= 1000) {
         $formattedPrice = number_format($formattedPrice, 0, null, ' ');
