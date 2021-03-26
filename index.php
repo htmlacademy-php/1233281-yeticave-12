@@ -44,6 +44,20 @@ $ads = [
     ],
 ];
 
+
+function formatPrice($price) {
+    $formattedPrice = ceil($price);
+    if ($formattedPrice >= 1000) {
+        $formattedPrice = number_format($formattedPrice, 0, null, ' ');
+    }
+
+    $formattedPrice = strval($formattedPrice);
+
+    $formattedPrice = $formattedPrice . ' ₽';
+
+    return $formattedPrice;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -118,7 +132,7 @@ $ads = [
                                 <div class="lot__state">
                                     <div class="lot__rate">
                                         <span class="lot__amount">Стартовая цена</span>
-                                        <span class="lot__cost"><?= $ad['price'] ?><b class="rub">р</b></span>
+                                        <span class="lot__cost"><?= formatPrice($ad['price']) ?></span>
                                     </div>
                                     <div class="lot__timer timer">
                                         12:23
