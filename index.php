@@ -5,7 +5,7 @@ $userName = 'Alexandr';
 
 $categories =  ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
 
-$ads = [
+$products = [
     [
         'name' => '2014 Rossignol District Snowboard',
         'category' => $categories[0],
@@ -43,6 +43,21 @@ $ads = [
         'img' => 'img/lot-6.jpg'
     ],
 ];
+
+
+function getFormattedPrice(int $price): string
+{
+    $formattedPrice = ceil($price);
+    if ($formattedPrice >= 1000) {
+        $formattedPrice = number_format($formattedPrice, 0, null, ' ');
+    }
+
+    $formattedPrice = strval($formattedPrice);
+
+    $formattedPrice = sprintf('%s ₽', $formattedPrice);
+
+    return $formattedPrice;
+}
 
 ?>
 <!DOCTYPE html>
@@ -107,18 +122,18 @@ $ads = [
                     <h2>Открытые лоты</h2>
                 </div>
                 <ul class="lots__list">
-                    <?php foreach ($ads as $ad) : ?>
+                    <?php foreach ($products as $product) : ?>
                         <li class="lots__item lot">
                             <div class="lot__image">
-                                <img src="<?= $ad['img'] ?>" width="350" height="260" alt="<?= $ad['name'] ?>">
+                                <img src="<?= $product['img'] ?>" width="350" height="260" alt="<?= $product['name'] ?>">
                             </div>
                             <div class="lot__info">
-                                <span class="lot__category"><?= $ad['category'] ?></span>
-                                <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $ad['name'] ?></a></h3>
+                                <span class="lot__category"><?= $product['category'] ?></span>
+                                <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $product['name'] ?></a></h3>
                                 <div class="lot__state">
                                     <div class="lot__rate">
                                         <span class="lot__amount">Стартовая цена</span>
-                                        <span class="lot__cost"><?= $ad['price'] ?><b class="rub">р</b></span>
+                                        <span class="lot__cost"><?= getFormattedPrice($product['price']) ?></span>
                                     </div>
                                     <div class="lot__timer timer">
                                         12:23
