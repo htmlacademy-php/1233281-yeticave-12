@@ -7,6 +7,8 @@ $isAuth = rand(0, 1);
 
 $userName = 'Alexandr';
 
+$title = 'Главная';
+
 $categories =  ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
 
 $products = [
@@ -66,6 +68,6 @@ function getFormattedPrice(int $price): string
 
 $page_content = include_template('main.php', ['products' => $products]);
 
-$layout_content = include_template('layout.php', ['isAuth' => $isAuth, 'userName' => $userName, 'categories' => $categories, 'content' => $page_content]);
+$layout_content = include_template('layout.php', ['isAuth' => $isAuth, 'title' => $title, 'userName' => $userName, 'categories' => $categories, 'content' => $page_content]);
 
 print($layout_content);
