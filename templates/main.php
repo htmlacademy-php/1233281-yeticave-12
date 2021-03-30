@@ -31,7 +31,7 @@
                             $hoursDif = $dateDif[0];
                             $minutesDif = $dateDif[1];
 
-                            $timerTime = "{$hoursDif}:{$minutesDif}";
+                            $timerValue = "{$hoursDif}:{$minutesDif}";
 
                             $timerFinishingClass = '';
 
@@ -41,7 +41,7 @@
 
                             ?>
                             <div class="lot__timer timer <?= $timerFinishingClass ?>">
-                                <?= $timerTime ?>
+                                <?= $timerValue ?>
                             </div>
 
                         </div>
