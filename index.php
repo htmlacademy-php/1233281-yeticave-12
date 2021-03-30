@@ -74,8 +74,6 @@ function getFormattedPrice(int $price): string
 
 function getDateDif(string $date): array
 {
-    date_default_timezone_set('Etc/GMT+3');
-
     $currentDate = new DateTime("now");
     $expirationDate = new DateTime($date);
 
