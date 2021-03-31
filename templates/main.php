@@ -27,15 +27,15 @@
                                 <span class="lot__amount">Стартовая цена</span>
                                 <span class="lot__cost"><?= getFormattedPrice(htmlspecialchars($product['price'])) ?></span>
                             </div>
-                            <?php $dateDif = getDateDif(htmlspecialchars($product['expirationDate']));
-                            $hoursDif = $dateDif[0];
-                            $minutesDif = $dateDif[1];
+                            <?php $dateDiff = getDateDiff(htmlspecialchars($product['expirationDate']));
+                            $hoursDiff = $dateDiff['hours'];
+                            $minutesDiff = $dateDiff['minutes'];
 
-                            $timerValue = "{$hoursDif}:{$minutesDif}";
+                            $timerValue = "{$hoursDiff}:{$minutesDiff}";
 
                             $timerFinishingClass = '';
 
-                            if ($hoursDif === 0) {
+                            if ($hoursDiff === 0) {
                                 $timerFinishingClass = 'timer--finishing';
                             }
 

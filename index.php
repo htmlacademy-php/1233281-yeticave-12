@@ -72,22 +72,22 @@ function getFormattedPrice(int $price): string
 }
 
 
-function getDateDif(string $date): array
+function getDateDiff(string $date): array
 {
-    $currentDate = new DateTime("now");
+    $currentDate = new DateTime();
     $expirationDate = new DateTime($date);
 
-    $dateDif = date_diff($currentDate, $expirationDate);
+    $dateDiff = date_diff($currentDate, $expirationDate);
 
-    if (isset($dateDif->{"d"}) && $dateDif->{"h"} && $dateDif->{"i"}) {
-        $hours = $dateDif->{"d"} * 24 + $dateDif->{"h"};
+    if (isset($dateDiff->{'d'}) && $dateDiff->{'h'} && $dateDiff->{'i'}) {
+        $hours = $dateDiff->{'d'} * 24 + $dateDiff->{'h'};
 
-        $minutes = $dateDif->{"i"};
+        $minutes = $dateDiff->{'i'};
 
-        return [$hours, $minutes];
+        return ['hours' => $hours, 'minutes' => $minutes];
     }
 
-    return [0, 0];
+    return ['hours' => 0, 'minutes' => 0];
 }
 
 $page_content = include_template('main.php', ['products' => $products]);
