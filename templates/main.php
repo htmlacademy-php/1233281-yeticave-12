@@ -29,9 +29,8 @@
                             </div>
                             <?php $dateDiff = getDateDiff(htmlspecialchars($product['expirationDate']));
                             $hoursDiff = $dateDiff['hours'];
-                            $minutesDiff = $dateDiff['minutes'];
-
-                            $timerValue = "{$hoursDiff}:{$minutesDiff}";
+                
+                            $timerValue = implode(':', $dateDiff);
 
                             $timerFinishingClass = '';
 
