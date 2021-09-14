@@ -78,31 +78,3 @@ ADD FOREIGN KEY (`category_id`) REFERENCES categories(`id`);
 ALTER TABLE bets
 ADD FOREIGN KEY (`author_id`) REFERENCES users(`id`),
 ADD FOREIGN KEY (`lot_id`) REFERENCES lots(`id`);
-
-CREATE TABLE `users_bets` (
-	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`user_id` INT(11) NOT NULL,
-	`bet_id` INT(11) NOT NULL,
-	PRIMARY KEY (`id`)
-)
-CHARACTER SET utf8 
-COLLATE='utf8_general_ci'
-;
-
-SELECT * FROM users u
-INNER JOIN users_bets ub ON u.id = ub.user_id
-INNER JOIN bets b ON ub.bet_id = b.id;
-
-CREATE TABLE `users_lots` (
-	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`user_id` INT(11) NOT NULL,
-	`lot_id` INT(11) NOT NULL,
-	PRIMARY KEY (`id`)
-)
-CHARACTER SET utf8 
-COLLATE='utf8_general_ci'
-;
-
-SELECT * FROM users u
-INNER JOIN users_lots ul ON u.id = ul.user_id
-INNER JOIN lots l ON ul.lot_id = l.id;
